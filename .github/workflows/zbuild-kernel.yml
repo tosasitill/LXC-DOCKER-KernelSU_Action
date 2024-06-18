@@ -157,7 +157,9 @@ jobs:
         aria2c -s10 -x10 -o 1.tar.xz ${{ secrets.DL }}
         mkdir -p clang-aosp
         tar -xf 1.tar.xz -C clang-aosp/
+        export PATH=$GITHUB_WORKSPACE/kernel_workspace/clang-aosp/snapdragon_llvm_arm64_v18.0.0/aarch64-linux-gnu/bin:$PATH
         export PATH=$GITHUB_WORKSPACE/kernel_workspace/clang-aosp/snapdragon_llvm_arm64_v18.0.0/bin:$PATH
+        export PATH=$GITHUB_WORKSPACE/kernel_workspace/clang-aosp/snapdragon_llvm_arm_v18.0.0/bin:$PATH
         export KBUILD_BUILD_HOST=Github-Action
         export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
         
